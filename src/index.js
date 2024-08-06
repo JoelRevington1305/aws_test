@@ -1,25 +1,25 @@
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
 
-mongoose
-  .connect(
-    "mongodb+srv://joelrevington28:J7twu3o6dp8sVXY1@chat.5k70qtx.mongodb.net/?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
-  .then((re) => console.log("DB connected"))
-  .catch((err) => console.log(err));
+// mongoose
+//   .connect(
+//     "mongodb+srv://joelrevington28:J7twu3o6dp8sVXY1@chat.5k70qtx.mongodb.net/?retryWrites=true&w=majority",
+//     {
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true,
+//     }
+//   )
+//   .then((re) => console.log("DB connected"))
+//   .catch((err) => console.log(err));
 
 app.use(bodyParser.json());
 
-app.get("/test", () => {
+app.get("/api/test", () => {
   console.log("The Project is Running")
 })
 
