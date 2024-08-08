@@ -2,10 +2,11 @@ const express = require("express");
 // const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require('path')
 require("dotenv").config();
 
 const app = express();
-app.use(express.static('../wwwroot'));
+app.use(express.static(path.join(__dirname,'../wwwroot')));
 
 // mongoose
 //   .connect(
@@ -19,6 +20,10 @@ app.use(express.static('../wwwroot'));
 //   .catch((err) => console.log(err));
 
 app.use(bodyParser.json());
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../wwwroot/index.html"));
+});
 
 app.get("/api/test", () => {
   console.log("The Project is Running")
